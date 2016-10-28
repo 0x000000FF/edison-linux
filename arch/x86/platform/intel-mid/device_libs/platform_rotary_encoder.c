@@ -30,7 +30,7 @@ static struct platform_device rotary_encoder_device = {
 static int __init rotary_encoder_init(void)
 {
 	pr_info("init rotary encoder");
-	return platform_device_register(&pb_device);
+	return platform_device_register(&rotary_encoder_device);
 }
 
 late_initcall(rotary_encoder_init);
