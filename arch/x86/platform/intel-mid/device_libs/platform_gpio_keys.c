@@ -26,22 +26,22 @@
  */
 static struct gpio_keys_button gpio_button[] = {
         {
-                .code = KEY_POWER,
-                .gpio = -1, /* GPIO number */
-                .active_low = 1,
-                .desc = "power_btn",/*Button description*/
-                .type = EV_KEY,
-                .wakeup = 0,
-                .debounce_interval = 3000,
+            .code = KEY_POWER,
+            .gpio = -1, /* GPIO number */
+            .active_low = 1,
+            .desc = "power_btn",/*Button description*/
+            .type = EV_KEY,
+            .wakeup = 0,
+            .debounce_interval = 3000,
         },
         {
-		.code = KEY_PROG1,
-		.gpio = 61,
-		.active_low = 1,
-		.desc = "SW1UI4",
-		.type = EV_KEY,
-		.wakeup = 0,
-		.debounce_interval = 50,
+			.code = KEY_ENTER,
+			.gpio = 83,
+			.active_low = 1,
+			.desc = "rotary encoder middle button",
+			.type = EV_KEY,
+			.wakeup = 1,
+			.debounce_interval = 5000,
         },
 };
 
