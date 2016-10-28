@@ -26,3 +26,11 @@ static struct platform_device rotary_encoder_device = {
 		.platform_data = &my_rotary_encoder_info,
 	}
 };
+
+static int __init rotary_encoder_init(void)
+{
+	pr_info("init rotary encoder");
+	return platform_device_register(&pb_device);
+}
+
+late_initcall(rotary_encoder_init);
