@@ -2,6 +2,7 @@
 
 #include <linux/input.h>
 #include <linux/rotary_encoder.h>
+#include <linux/platform_device.h>
 
 #define GPIO_ROTARY_A 80
 #define GPIO_ROTARY_B 81
