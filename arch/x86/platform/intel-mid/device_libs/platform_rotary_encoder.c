@@ -9,8 +9,8 @@
 
 static struct rotary_encoder_platform_data my_rotary_encoder_info = {
 	.steps			= 24,
-	.axis			= REL_X,
-	.relative_axis	= false,
+	.axis			= EV_REL,
+	.relative_axis	= true,
 	.rollover		= true,
 	.gpio_a			= GPIO_ROTARY_A,
 	.gpio_b			= GPIO_ROTARY_B, 
