@@ -38,9 +38,9 @@ static struct gpio_keys_button gpio_button[] = {
 			.code = KEY_ENTER,
 			.gpio = 83,
 			.active_low = 1,
-			.desc = "rotary encoder middle button",
+			.desc = "rotary_encoder_middle_button",
 			.type = EV_KEY,
-			.wakeup = 1,
+			.wakeup = 0,
 			.debounce_interval = 5000,
         },
 };
