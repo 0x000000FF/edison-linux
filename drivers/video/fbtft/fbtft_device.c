@@ -175,6 +175,7 @@ static int waveshare32b_init_sequence[] = {
 	-1,0xE1,0x00,0x0E,0x14,0x03,0x11,0x07,0x31,0xC1,0x48,0x08,0x0F,0x0C,0x31,0x36,0x0F,
 	-1,0x11,-2,120,-1,0x29,-1,0x2c,-3 };
 
+
 /* Supported displays in alphabetical order */
 static struct fbtft_device_display displays[] = {
 	{
@@ -185,6 +186,10 @@ static struct fbtft_device_display displays[] = {
 			.dev = {
 			.release = fbtft_device_pdev_release,
 			.platform_data = &(struct fbtft_platform_data) {
+				.display = {
+					.buswidth = 8,
+					.backlight = 1,
+				},
 				.gpios = (const struct fbtft_gpio []) {
 					{ "reset", 111 },
 					{ "dc",   49 },
@@ -199,7 +204,6 @@ static struct fbtft_device_display displays[] = {
 					{ "db06", 46 },
 					{ "db07", 47 },
 					{ "led",  183 },
-					{},
 				},
 			}
 		}
