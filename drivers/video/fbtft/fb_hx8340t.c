@@ -105,46 +105,46 @@ static int init_display(struct fbtft_par *par)
 	// write_reg(par, 0x29);
 	// mdelay(10);
 
-	write_reg(0x60, 0x00);
-	write_reg(0x60, 0x00); //PTBA[15:8]
-	write_reg(0x61, 0x06); //PTBA[7:0]
-	write_reg(0x62, 0x00); //STBA[15:8]
-	write_reg(0x63, 0xD9); //STBA[7:0]
-	write_reg(0x73, 0x70); //OPON[7:0],SET OPON=70h, default 38h
+	write_reg(par, 0x60, 0x00);
+	write_reg(par, 0x60, 0x00); //PTBA[15:8]
+	write_reg(par, 0x61, 0x06); //PTBA[7:0]
+	write_reg(par, 0x62, 0x00); //STBA[15:8]
+	write_reg(par, 0x63, 0xD9); //STBA[7:0]
+	write_reg(par, 0x73, 0x70); //OPON[7:0],SET OPON=70h, default 38h
 
 	//Power Voltage Setting
-	write_reg(0x1F, 0x03); //VRH=4.65V
-	write_reg(0x20, 0x01); //BT (VGH~15V,VGL~-10V,DDVDH~5V)
-	write_reg(0x24, 0x1C); //VMH(VCOM High voltage3.2V)
-	write_reg(0x25, 0x34); //VML(VCOM Low voltage -1.2V)
+	write_reg(par, 0x1F, 0x03); //VRH=4.65V
+	write_reg(par, 0x20, 0x01); //BT (VGH~15V,VGL~-10V,DDVDH~5V)
+	write_reg(par, 0x24, 0x1C); //VMH(VCOM High voltage3.2V)
+	write_reg(par, 0x25, 0x34); //VML(VCOM Low voltage -1.2V)
 	//****VCOM offset**///
-	write_reg(0x23, 0x5e); //reload from OTP// For Flicker adjust  005f
+	write_reg(par, 0x23, 0x5e); //reload from OTP// For Flicker adjust  005f
 	//Power on Setting
-	write_reg(0x18, 0x44); //I/P_RADJ,N/P_RADJ, Normal mode 60Hz
-	write_reg(0x1B, 0x44); //FS1 Pumping Clock= 2 x line frequency
-	write_reg(0x21, 0x01); //OSC_EN='1', start Osc
-	write_reg(0x01, 0x00); //SLP='0', out sleep
-	write_reg(0x1C, 0x03); //AP=011
-	write_reg(0x19, 0x06); // VOMG=1,PON=1, DK=0,
+	write_reg(par, 0x18, 0x44); //I/P_RADJ,N/P_RADJ, Normal mode 60Hz
+	write_reg(par, 0x1B, 0x44); //FS1 Pumping Clock= 2 x line frequency
+	write_reg(par, 0x21, 0x01); //OSC_EN='1', start Osc
+	write_reg(par, 0x01, 0x00); //SLP='0', out sleep
+	write_reg(par, 0x1C, 0x03); //AP=011
+	write_reg(par, 0x19, 0x06); // VOMG=1,PON=1, DK=0,
 	mdelay(10);
 	//262k/65k color selection
-	write_reg(0x17, 0x05); //default 0x06 262k color // 0x05 65k color
+	write_reg(par, 0x17, 0x05); //default 0x06 262k color // 0x05 65k color
 	//Display ON Setting
-	write_reg(0x26, 0x84); //PT=10,GON=0, DTE=0, D=0100
+	write_reg(par, 0x26, 0x84); //PT=10,GON=0, DTE=0, D=0100
 	mdelay(80);
-	write_reg(0x26, 0xB8); //PT=10,GON=1, DTE=1, D=1000
+	write_reg(par, 0x26, 0xB8); //PT=10,GON=1, DTE=1, D=1000
 	mdelay(80);
-	write_reg(0x26, 0xBC); //PT=10,GON=1, DTE=1, D=1100
+	write_reg(par, 0x26, 0xBC); //PT=10,GON=1, DTE=1, D=1100
 	//Set GRAM Area
-	write_reg(0x16, 0xE8);//set XYV
-	write_reg(0x02, 0x00);
-	write_reg(0x03, 0x00); //Column Start
-	write_reg(0x04, 0x00);
-	write_reg(0x05, 0xDB); //Column End
-	write_reg(0x06, 0x00);
-	write_reg(0x07, 0x00); //Row Start
-	write_reg(0x08, 0x00);
-	write_reg(0x09, 0xAF); //Row End
+	write_reg(par, 0x16, 0xE8);//set XYV
+	write_reg(par, 0x02, 0x00);
+	write_reg(par, 0x03, 0x00); //Column Start
+	write_reg(par, 0x04, 0x00);
+	write_reg(par, 0x05, 0xDB); //Column End
+	write_reg(par, 0x06, 0x00);
+	write_reg(par, 0x07, 0x00); //Row Start
+	write_reg(par, 0x08, 0x00);
+	write_reg(par, 0x09, 0xAF); //Row End
 
 	return 0;
 }
