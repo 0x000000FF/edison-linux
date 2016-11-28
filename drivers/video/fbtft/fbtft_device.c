@@ -180,7 +180,7 @@ static struct fbtft_device_display displays[] = {
 	{
 		.name = "mostfun_hx8340t",
 		.pdev = &(struct platform_device) {
-			.name = "hx8340t",
+			.name = "fb_hx8340t",
 			.id = 0,
 			.dev = {
 			.release = fbtft_device_pdev_release,
