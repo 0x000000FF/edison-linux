@@ -22,6 +22,7 @@
 #include <linux/init.h>
 #include <linux/gpio.h>
 #include <linux/spi/spi.h>
+#include <linux/spi/intel_mid_ssp_spi.h>
 
 #include "fbtft.h"
 
@@ -201,6 +202,7 @@ static struct fbtft_device_display displays[] = {
 					{},
 				},
 			}
+		}
 		}
 	}, {
 		.name = "adafruit18",

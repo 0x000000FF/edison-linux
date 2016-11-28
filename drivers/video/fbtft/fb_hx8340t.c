@@ -32,7 +32,7 @@
 
 #include "fbtft.h"
 
-#define DRVNAME		"fb_hx8340bn"
+#define DRVNAME		"fb_hx8340t"
 #define WIDTH		176
 #define HEIGHT		220
 #define TXBUFLEN	(4 * PAGE_SIZE)
@@ -239,23 +239,23 @@ static int set_gamma(struct fbtft_par *par, unsigned long *curves)
 	// mdelay(10);
 
 	//Gamma 2.2 Setting
-	write_reg(0x40, 0x01); //
-	write_reg(0x41, 0x30); //
-	write_reg(0x42, 0x62); //
-	write_reg(0x43, 0x00); //
-	write_reg(0x44, 0x79); //
-	write_reg(0x45, 0x05); //
-	write_reg(0x46, 0x0D); //
-	write_reg(0x47, 0xC7); //
-	write_reg(0x48, 0x04); //
-	write_reg(0x50, 0x76); //
-	write_reg(0x51, 0x00); //
-	write_reg(0x52, 0x76); //
-	write_reg(0x53, 0x10); //
-	write_reg(0x54, 0xA2); //
-	write_reg(0x55, 0x0C); //
-	write_reg(0x56, 0x01); //
-	write_reg(0x57, 0xA9); //
+	write_reg(par, 0x40, 0x01); //
+	write_reg(par, 0x41, 0x30); //
+	write_reg(par, 0x42, 0x62); //
+	write_reg(par, 0x43, 0x00); //
+	write_reg(par, 0x44, 0x79); //
+	write_reg(par, 0x45, 0x05); //
+	write_reg(par, 0x46, 0x0D); //
+	write_reg(par, 0x47, 0xC7); //
+	write_reg(par, 0x48, 0x04); //
+	write_reg(par, 0x50, 0x76); //
+	write_reg(par, 0x51, 0x00); //
+	write_reg(par, 0x52, 0x76); //
+	write_reg(par, 0x53, 0x10); //
+	write_reg(par, 0x54, 0xA2); //
+	write_reg(par, 0x55, 0x0C); //
+	write_reg(par, 0x56, 0x01); //
+	write_reg(par, 0x57, 0xA9); //
 	mdelay(10);
 	return 0;
 }
@@ -277,13 +277,11 @@ static struct fbtft_display display = {
 		.set_gamma = set_gamma,
 	},
 };
-FBTFT_REGISTER_DRIVER(DRVNAME, "himax,hx8340bn", &display);
+FBTFT_REGISTER_DRIVER(DRVNAME, "himax,hx8340t", &display);
 
-MODULE_ALIAS("spi:" DRVNAME);
 MODULE_ALIAS("platform:" DRVNAME);
-MODULE_ALIAS("spi:hx8340bn");
-MODULE_ALIAS("platform:hx8340bn");
+MODULE_ALIAS("platform:hx8340t");
 
-MODULE_DESCRIPTION("FB driver for the HX8340BN LCD Controller");
+MODULE_DESCRIPTION("FB driver for the HX8340T LCD Controller");
 MODULE_AUTHOR("Noralf Tronnes");
 MODULE_LICENSE("GPL");
